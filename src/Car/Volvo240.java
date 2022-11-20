@@ -1,4 +1,7 @@
+package Car;
 import java.awt.*;
+
+import Utilities.Clamping;
 
 public class Volvo240 extends Car{
 
@@ -27,13 +30,4 @@ public class Volvo240 extends Car{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
 }

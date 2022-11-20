@@ -1,4 +1,7 @@
+package Car;
 import java.awt.*;
+
+import Utilities.Clamping;
 
 public class Saab95 extends Car {
 
@@ -38,13 +41,5 @@ public class Saab95 extends Car {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
     
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
+   
 }

@@ -1,0 +1,15 @@
+1. We wrote a couple of helper classes that were needed, 
+for example the Vector2D class is a class to help us with 2D vectors.
+That class is closed for modification but open when you want to extend any of it. 
+That means making other methods / operators for the vectors.
+For example division, subtraction or the dot product. 
+Everything could be possible. 
+
+The "main" super class is Car where every car inherits from. 
+It has functions that all cars should have, like getters and setters for different attributes.
+
+
+2. Because the math is too complicated we chose to just increase the speed by a lot.
+Then we tested if that speed is equal to the enginepower.
+That would mean that our clamp methods worked!!!!!
+Then we did almost identical test for the decrease of the speed.
