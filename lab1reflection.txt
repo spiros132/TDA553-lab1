@@ -1,12 +1,12 @@
 1. We wrote a couple of helper classes that were needed, 
 for example the Vector2D class is a class to help us with 2D vectors.
-That class is closed for modification but open when you want to extend any of it. 
-That means making other methods / operators for the vectors.
-For example division, subtraction or the dot product. 
-Everything could be possible. 
+We've also added the classes turbo and trim to allow for
+future turbo or trim cars without much modification and with more reusability of the code we have written. 
 
 The "main" super class is Car where every car inherits from. 
 It has functions that all cars should have, like getters and setters for different attributes.
+It also has functions about how the car should move and how it should turn. 
+It also has an abstract function that every car inherits which returns a value for the speed of the car.
 
 
 2. Because the math is too complicated we chose to just increase the speed by a lot.
