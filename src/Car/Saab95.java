@@ -1,45 +1,31 @@
-package Car;
+package car;
 import java.awt.*;
-
-import Utilities.Clamping;
 
 public class Saab95 extends Car {
 
-    public boolean turboOn;
+    private Turbo turbo;
     
     public Saab95() {
         nrDoors = 2;
         color = Color.red;
         enginePower = 125;
-	    turboOn = false;
+        turbo = new Turbo(0.33d);
         modelName = "Saab95";
-        stopEngine();
+        StopEngine();
     }
 
     public void setTurboOn(){
-	    turboOn = true;
+	    turbo.TurnOn();
     }
 
     public void setTurboOff(){
-	    turboOn = false;
+	    turbo.TurnOff();
     }
     
     @Override
-    public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+    protected double speedFactor(){
+        double turboAmount = 1 + turbo.GetTurboAmount();
+        return enginePower * 0.01 * turboAmount;
     }
-
-    @Override
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    @Override
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
-    
-   
+ 
 }

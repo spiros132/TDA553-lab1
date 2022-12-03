@@ -1,6 +1,7 @@
-package Utilities;
+package utilities;
 
 public final class Clamping {
+    // Clamp //
     public static double Clamp(double value, double min, double max) {
         if(value > max) {
             value = max;

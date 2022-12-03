@@ -1,13 +1,13 @@
-package Car;
+package car;
 import java.awt.*;
 
-import Utilities.Vector2D;
-import Utilities.Clamping;
+import utilities.Clamping;
+import utilities.Vector2D;
 
 public abstract class Car implements Movable{
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
+    private double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
     
@@ -15,18 +15,18 @@ public abstract class Car implements Movable{
     protected int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
     
 
-    public int getNrDoors(){
+    public int GetNrDoors(){
         return nrDoors;
     }
-    public double getEnginePower(){
+    public double GetEnginePower(){
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double GetCurrentSpeed(){
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color GetColor(){
         return color;
     }
 
@@ -34,21 +34,27 @@ public abstract class Car implements Movable{
 	    color = clr;
     }
 
-    public void startEngine(){
+    public void StartEngine(){
 	    currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void StopEngine(){
 	    currentSpeed = 0;
     }
 
-    public abstract double speedFactor();
 
-    protected abstract void incrementSpeed(double amount);
+    protected abstract double speedFactor();
 
-    protected abstract void decrementSpeed(double amount);
 
-    
+    private void incrementSpeed(double amount){
+	    currentSpeed = Math.min(GetCurrentSpeed() + speedFactor() * amount,enginePower);
+    }
+
+    private void decrementSpeed(double amount){
+        currentSpeed = Math.max(GetCurrentSpeed() - speedFactor() * amount,0);
+    }
+
+  
     public Vector2D GetCurrentVectorDirection() {
         if(direction == 0) { // 0 is up
             return new Vector2D(0, 1);
@@ -78,11 +84,11 @@ public abstract class Car implements Movable{
         return position;
     }
 
-    public void move() {
+    public void Move() {
         position = Vector2D.Add(position, Vector2D.Multiply(GetCurrentVectorDirection(), speedFactor()));
     }
 
-    public int turnLeft() {
+    public void TurnLeft() {
         System.out.println("Turn Left, current direction: " + direction);
         direction -= 1;
     
@@ -91,11 +97,9 @@ public abstract class Car implements Movable{
         }
 
         System.out.println("After current direction: " + direction);
-
-        return direction;
     }
 
-    public int turnRight() {
+    public void TurnRight() {
         System.out.println("Turn Right, current direction: " + direction);
 
         direction += 1;
@@ -104,7 +108,6 @@ public abstract class Car implements Movable{
         }
         
         System.out.println("After current direction: " + direction);
-        return direction;
     }
 
     public void gas(double amount){

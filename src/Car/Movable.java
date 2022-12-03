@@ -1,6 +1,6 @@
-package Car;
+package car;
 public interface Movable {
-    public void move();
-    public int turnLeft();
-    public int turnRight();
+    public void Move();
+    public void TurnLeft();
+    public void TurnRight();
 }
