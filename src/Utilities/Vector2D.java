@@ -6,6 +6,8 @@ public class Vector2D {
     public double x;
     public double y;
 
+    public static final Vector2D Zero = new Vector2D(0, 0);
+
     public Vector2D() {
         this.x = 0;
         this.y = 0;
@@ -23,6 +25,10 @@ public class Vector2D {
 
     public static Vector2D Multiply(Vector2D a, double multiplier) {
         return new Vector2D(a.x * multiplier, a.y * multiplier);
+    }
+
+    public static double Distance(Vector2D a, Vector2D b) {
+        return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
     }
 
     @Override

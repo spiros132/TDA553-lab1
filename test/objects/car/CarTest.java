@@ -1,4 +1,4 @@
-package car;
+package objects.car;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,7 +13,8 @@ public class CarTest {
 
     @BeforeEach
     public void init() {
-        car = new TestCar();
+        car = new TestingCar();
+        car.StartEngine();
     }
     
     @Test
@@ -23,7 +24,7 @@ public class CarTest {
         if(expectedDirection < 0) {
             expectedDirection = 3;
         }
-
+        
         car.TurnLeft();
         assertEquals(expectedDirection, car.GetCurrentIntDirection());
 
@@ -47,7 +48,7 @@ public class CarTest {
             Vector2D.Add(car.GetCurrentPosition(), 
                 Vector2D.Multiply(
                     car.GetCurrentVectorDirection(), 
-                    car.speedFactor()));
+                    car.GetCurrentSpeed()));
 
         car.Move();
         assertEquals(expectedPosition, car.GetCurrentPosition());

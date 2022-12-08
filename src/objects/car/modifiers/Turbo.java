@@ -1,4 +1,4 @@
-package car;
+package objects.car.modifiers;
 
 public class Turbo {
     private Boolean turboOn;

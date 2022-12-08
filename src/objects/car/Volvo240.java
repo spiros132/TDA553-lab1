@@ -1,5 +1,7 @@
-package car;
+package objects.car;
 import java.awt.*;
+
+import objects.car.modifiers.Trim;
 
 public class Volvo240 extends Car{
     
@@ -9,8 +11,8 @@ public class Volvo240 extends Car{
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
-        modelName = "Volvo240";
         trim = new Trim(1.25d);
+        modelName = "Volvo240";
         StopEngine();
     }
 

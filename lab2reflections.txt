@@ -1,0 +1,15 @@
+1) In our program the gas method has this contract: Precondition give an int, postcondition gas will increment the speed by a number between 0 and 1
+breaks contract is : precondition give an int, postcondition gas will decrement the speed by a number between 0 and 1
+
+Volvo and scania inherrit gas and break from car without overridinging it, therefor gas an break still folow their contract in volov and scania. 
+We belive that our code is following the liskov substitiontion principle as methods that we overide we only change the implemtation tex speedfactor.
+In the few cases we change more we still follow the contrcat of what is overidden only add to it slighty in a way that is okay according to the liskov principel
+For exemple Move in car transporter and scania.
+
+2) We avoided the duplicate code by creating the new classes carLoader and ramp. We chose to primarily use composition as it worked better with our previous code and structure of program.a
+We did use subclassing but only when it came to the repair shop. We made another super class called GameObject that has all the position and rotation code. Everything now in our program inherents from GameObject.
+
+3) We didn't really modify our design from lab1 very much, the only large design change we made was implementing the GameObject super class to house positioning and rotation functionality.
+So we followed the open closed principle quite well but not perfectly in lab1, now we are more happy with the structure of the code and have followed the open closed principle a bit better.
+For example you only need to add modifiers if you want to create new functionality for the cars and add a new car. 
+We also added the canDrive function that controls whether a car can move or not. Now with the addition of the GameObject super class you can even create buildings. 

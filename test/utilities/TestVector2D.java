@@ -1,5 +1,5 @@
 package utilities;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class TestVector2D {
@@ -11,7 +11,7 @@ public class TestVector2D {
         var expectation = new Vector2D(vec1.x + vec2.x, vec1.y + vec2.y);
         var actual = Vector2D.Add(vec1, vec2);
 
-        assertTrue(expectation == actual);
+        assertEquals(expectation, actual);
     }
 
     @Test
@@ -20,6 +20,6 @@ public class TestVector2D {
         var expectation = new Vector2D(vec1.x * constant, vec1.y * constant);
         var actual = Vector2D.Multiply(vec1, constant);
 
-        assertTrue(expectation == actual);
+        assertEquals(expectation, actual);
     }
 }

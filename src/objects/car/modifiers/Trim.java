@@ -1,4 +1,4 @@
-package car;
+package objects.car.modifiers;
 
 public class Trim {
     private double trimFactor;
