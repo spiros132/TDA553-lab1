@@ -19,24 +19,24 @@ public class CarTransporter extends Car {
         carLoader = new CarLoader(5,5);
         modelName = "CarTransporter";
         unloadOffset = new Vector2D(0, -2);
-        StopEngine();
+        stopEngine();
     }
 
-    public void Raise() {
-        ramp.Raise(1);
+    public void raise() {
+        ramp.raise(1);
     }
-    public void Lower() {
-        ramp.Lower(1);
+    public void lower() {
+        ramp.lower(1);
     }
 
-    void RaiseRamp(int angle) {
-        if(GetCurrentSpeed() <= 0 && angle > 0) {
-            ramp.Raise(angle);
+    void raiseRamp(int angle) {
+        if(getCurrentSpeed() <= 0 && angle > 0) {
+            ramp.raise(angle);
         }
     }
-    void LowerRamp(int angle) {
-        if(GetCurrentSpeed() <= 0 && angle > 0) {
-            ramp.Lower(angle);
+    void lowerRamp(int angle) {
+        if(getCurrentSpeed() <= 0 && angle > 0) {
+            ramp.lower(angle);
         }
     }
 
@@ -47,30 +47,30 @@ public class CarTransporter extends Car {
     }
 
     @Override
-    public void Move() {
-        super.Move();
+    public void move() {
+        super.move();
 
-        carLoader.MoveCars(GetCurrentPosition());
+        carLoader.moveCars(getCurrentPosition());
     }
 
     @Override
     protected boolean canDrive() {
-        return ramp.GetAngle() == ramp.GetMaxAngle();
+        return ramp.getAngle() == ramp.getMaxAngle();
     }
  
 
-    public void Load(Car car) {
-        if(ramp.GetAngle() == 0) {
-            carLoader.Load(car, GetCurrentPosition());
-            car.MoveToPosition(GetCurrentPosition());
+    public void load(Car car) {
+        if(ramp.getAngle() == 0) {
+            carLoader.load(car, getCurrentPosition());
+            car.moveToPosition(getCurrentPosition());
         }
     }
 
-    public Car Unload(int index) {
-        if(ramp.GetAngle() == 0) {
-            Car unloadedCar =  carLoader.Unload(index);
+    public Car unload(int index) {
+        if(ramp.getAngle() == 0) {
+            Car unloadedCar =  carLoader.unload(index);
 
-            unloadedCar.MoveToPosition(Vector2D.Add(GetCurrentPosition(), unloadOffset));
+            unloadedCar.moveToPosition(Vector2D.add(getCurrentPosition(), unloadOffset));
 
             return unloadedCar;
         }
@@ -78,7 +78,7 @@ public class CarTransporter extends Car {
         return null;
     }
 
-    public Car[] GetCars() {
-        return carLoader.GetCars();
+    public Car[] getCars() {
+        return carLoader.getCars();
     }
 }

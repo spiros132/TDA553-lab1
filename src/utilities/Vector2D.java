@@ -27,7 +27,7 @@ public class Vector2D {
         return new Vector2D(a.x * multiplier, a.y * multiplier);
     }
 
-    public static double Distance(Vector2D a, Vector2D b) {
+    public static double distance(Vector2D a, Vector2D b) {
         return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
     }
 

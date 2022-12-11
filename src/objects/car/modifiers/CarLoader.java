@@ -16,33 +16,33 @@ public class CarLoader {
         cars = new ArrayList<Car>();
     }
 
-    public int GetMaxSize() {
+    public int getMaxSize() {
         return maxSize;
     }
 
-    public int GetCurrentSize() {
+    public int getCurrentSize() {
         return cars.size();
     }
 
-    public Car[] GetCars() {
+    public Car[] getCars() {
         return cars.toArray(new Car[0]);
     }
 
-    public void MoveCars(Vector2D position) {
+    public void moveCars(Vector2D position) {
         for(Car car : cars) {
-            car.MoveToPosition(position);
+            car.moveToPosition(position);
         }
     }
 
-    public void Load(Car car, Vector2D carLoaderPosition) {
+    public void load(Car car, Vector2D carLoaderPosition) {
         if(!cars.contains(car) && 
             cars.size() < maxSize && 
-            Vector2D.Distance(car.GetCurrentPosition(), carLoaderPosition) <= maxLoadingDistance) {
+            Vector2D.distance(car.getCurrentPosition(), carLoaderPosition) <= maxLoadingDistance) {
                 cars.add(car);
         }
     }
 
-    public Car Unload(int index) {
+    public Car unload(int index) {
         if(index < cars.size())
             return cars.remove(index);
         

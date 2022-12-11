@@ -14,27 +14,27 @@ public class Ramp {
     }
 
 
-    public void Raise(int angle) {
+    public void raise(int angle) {
         currentAngle += angle;
 
-        currentAngle = Clamping.Clamp(currentAngle, minAngle, maxAngle);
+        currentAngle = Clamping.clamp(currentAngle, minAngle, maxAngle);
     }
 
-    public void Lower(int angle) {
+    public void lower(int angle) {
         currentAngle -= angle;
 
-        currentAngle = Clamping.Clamp(currentAngle, minAngle, maxAngle);
+        currentAngle = Clamping.clamp(currentAngle, minAngle, maxAngle);
     }
 
-    public int GetAngle() {
+    public int getAngle() {
         return this.currentAngle;
     }
 
-    public int GetMinAngle() {
+    public int getMinAngle() {
         return this.minAngle;
     }
 
-    public int GetMaxAngle() {
+    public int getMaxAngle() {
         return this.maxAngle;
     }
 }

@@ -21,17 +21,17 @@ public class RampTest {
     public void TestClampMax() {
         int expected = maxAngle;
 
-        ramp.Raise(maxAngle * 2);
+        ramp.raise(maxAngle * 2);
 
-        assertEquals(ramp.GetAngle(), expected);
+        assertEquals(ramp.getAngle(), expected);
     }
 
     @Test
     public void TestClampMin() {
         int expected = minAngle;
 
-        ramp.Lower(maxAngle * 2);
+        ramp.lower(maxAngle * 2);
 
-        assertEquals(ramp.GetAngle(), expected);
+        assertEquals(ramp.getAngle(), expected);
     }
 }

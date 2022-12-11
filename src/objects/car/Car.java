@@ -1,4 +1,4 @@
-package car;
+package objects.car;
 import java.awt.*;
 
 import objects.GameObject;
@@ -12,15 +12,11 @@ public abstract class Car extends GameObject implements Movable {
     protected String modelName; // The car model name
     private double currentSpeed; // The current speed of the car
     
-<<<<<<< HEAD:src/objects/car/Car.java
-    public int GetNrDoors(){
-=======
     private Vector2D position = new Vector2D();
     private int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
     
 
     public int getNrDoors(){
->>>>>>> lab1:src/Car/Car.java
         return nrDoors;
     }
     public double getEnginePower(){
@@ -35,16 +31,11 @@ public abstract class Car extends GameObject implements Movable {
         return color;
     }
 
-    protected void setColor(Color clr){
+    protected void setColor(Color clr) {
 	    color = clr;
     }
 
-<<<<<<< HEAD:src/objects/car/Car.java
-    public void StartEngine(){
-        
-=======
     public void startEngine(){
->>>>>>> lab1:src/Car/Car.java
 	    currentSpeed = 0.1;
     }
 
@@ -67,12 +58,6 @@ public abstract class Car extends GameObject implements Movable {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
-<<<<<<< HEAD:src/objects/car/Car.java
-    public void TurnLeft() {
-        if(GetCurrentSpeed() <= 0)
-            return;
-=======
-  
     public Vector2D getCurrentVectorDirection() {
         if(direction == 0) { // 0 is up
             return new Vector2D(0, 1);
@@ -102,10 +87,6 @@ public abstract class Car extends GameObject implements Movable {
         return position;
     }
 
-    public void move() {
-        position = Vector2D.add(position, Vector2D.multiply(getCurrentVectorDirection(), speedFactor()));
-    }
-
     public void turnLeft() {
         System.out.println("Turn Left, current direction: " + direction);
         direction -= 1;
@@ -113,26 +94,19 @@ public abstract class Car extends GameObject implements Movable {
         if (direction < 0) {
             direction = 3;
         }
->>>>>>> lab1:src/Car/Car.java
 
-        RotateLeft(1);  
+        rotateLeft(1);  
     }
 
-<<<<<<< HEAD:src/objects/car/Car.java
-    public void TurnRight() {
-        if(GetCurrentSpeed() <= 0)
-            return;
-=======
     public void turnRight() {
         System.out.println("Turn Right, current direction: " + direction);
->>>>>>> lab1:src/Car/Car.java
 
-        RotateRight(1);
+        rotateRight(1);
     }
 
-    public void Move() {
+    public void move() {
         if (canDrive() == true)
-            MoveWithDirection(Vector2D.Multiply(GetCurrentVectorDirection(), GetCurrentSpeed()));
+            moveWithDirection(Vector2D.multiply(getCurrentVectorDirection(), getCurrentSpeed()));
     }
 
     public void gas(double amount){

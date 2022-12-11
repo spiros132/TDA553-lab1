@@ -16,7 +16,7 @@ import objects.car.modifiers.Ramp;
         enginePower = 90;
         ramp = new Ramp(rampMinAngle,rampMinAngle,rampMaxAngle);
         modelName ="Scania";
-        StopEngine();
+        stopEngine();
     }
 
     @Override
@@ -25,21 +25,21 @@ import objects.car.modifiers.Ramp;
         return enginePower * 0.01;
     }
 
-    public void Raise(int angle) {
-        if(GetCurrentSpeed() <= 0 && angle > 0) {
-            ramp.Raise(angle);
+    public void raise(int angle) {
+        if(getCurrentSpeed() <= 0 && angle > 0) {
+            ramp.raise(angle);
         }
     }
     
-    public void Lower(int angle) {
-        if(GetCurrentSpeed() <= 0 && angle > 0) {
-            ramp.Lower(angle);
+    public void lower(int angle) {
+        if(getCurrentSpeed() <= 0 && angle > 0) {
+            ramp.lower(angle);
         }
     }
 
     @Override
     protected boolean canDrive() {
-        return ramp.GetAngle() == ramp.GetMinAngle();
+        return ramp.getAngle() == ramp.getMinAngle();
     }
  
  }

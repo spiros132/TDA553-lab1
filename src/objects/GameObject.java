@@ -1,25 +1,26 @@
 package objects;
 
 import java.util.UUID;
+import java.lang.Math;
 
 import utilities.Vector2D;
 
 public class GameObject {
     UUID uid;
 
-    protected Vector2D position = Vector2D.Zero;
-    protected int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
+    private Vector2D position = Vector2D.Zero;
+    private int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
 
     public GameObject() {
         uid = UUID.randomUUID();
     }
 
-    public void SetStartingValues(Vector2D StartingPosition, int StartingDirection) {
+    public void setStartingValues(Vector2D StartingPosition, int StartingDirection) {
         position = StartingPosition;
         direction = StartingDirection;
     }
 
-    public Vector2D GetCurrentVectorDirection() {
+    public Vector2D getCurrentVectorDirection() {
         if(direction == 0) { // 0 is up
             return new Vector2D(0, 1);
         }
@@ -37,33 +38,33 @@ public class GameObject {
         }
     }
 
-    public int GetCurrentIntDirection() {
+    public int getCurrentIntDirection() {
         if(direction > 3 && direction < 0) {
             throw new Error("Direction: " + direction + "shouldn't exist");
         }
         return direction;
     }
 
-    public Vector2D GetCurrentPosition() {
+    public Vector2D getCurrentPosition() {
         return position;
     }
 
-    public void MoveToPosition(Vector2D position) {
+    public void moveToPosition(Vector2D position) {
         this.position = position;
     }
 
-    protected void MoveWithDirection(Vector2D direction) {
-        position = Vector2D.Add(position, direction);
+    protected void moveWithDirection(Vector2D direction) {
+        position = Vector2D.add(position, direction);
     }
 
-    protected void RotateRight(int stepsAmount) {
+    protected void rotateRight(int stepsAmount) {
         direction += stepsAmount;
-        direction %= 4;
+        direction = Math.floorMod(direction, 4);
     }
 
-    protected void RotateLeft(int stepsAmount) {
+    protected void rotateLeft(int stepsAmount) {
         direction -= stepsAmount;
-        direction %= 4;
+        direction = Math.floorMod(direction, 4);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package car;
+package objects.car;
 import java.awt.*;
 
 import objects.car.modifiers.Trim;
@@ -12,12 +12,8 @@ public class Volvo240 extends Car{
         color = Color.black;
         enginePower = 100;
         trim = new Trim(1.25d);
-<<<<<<< HEAD:src/objects/car/Volvo240.java
         modelName = "Volvo240";
-        StopEngine();
-=======
         stopEngine();
->>>>>>> lab1:src/Car/Volvo240.java
     }
 
     @Override

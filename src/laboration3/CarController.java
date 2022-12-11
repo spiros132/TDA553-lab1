@@ -38,15 +38,15 @@ public class CarController {
         CarController cc = new CarController();
 
         var volvo = new Volvo240();
-        volvo.SetStartingValues(Vector2D.Zero, 1);
+        volvo.setStartingValues(Vector2D.Zero, 1);
         cc.cars.add(volvo);
 
         var saab = new Saab95();
-        saab.SetStartingValues(new Vector2D(0, 100), 1);
+        saab.setStartingValues(new Vector2D(0, 100), 1);
         cc.cars.add(saab);
 
         var scania = new Scania();
-        scania.SetStartingValues(new Vector2D(0, 200), 1);
+        scania.setStartingValues(new Vector2D(0, 200), 1);
         cc.cars.add(scania);
         
         
@@ -64,9 +64,9 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
-                car.Move();
-                int x = (int) Math.round(car.GetCurrentPosition().x);
-                int y = (int) Math.round(car.GetCurrentPosition().y);
+                car.move();
+                int x = (int) Math.round(car.getCurrentPosition().x);
+                int y = (int) Math.round(car.getCurrentPosition().y);
                 frame.drawPanel.moveit(x, y, car);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();

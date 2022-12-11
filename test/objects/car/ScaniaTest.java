@@ -18,15 +18,15 @@ public class ScaniaTest {
     @Test
     public void TestMovingWithRampLeaning(){
         
-        scania.Raise(scania.rampMaxAngle * 2);
-        scania.StartEngine();
-        var expected = scania.GetCurrentPosition();
+        scania.raise(scania.rampMaxAngle * 2);
+        scania.startEngine();
+        var expected = scania.getCurrentPosition();
         
         for (int i = 0; i < 10; i++) {
             scania.gas(1);
         }
 
-        var actual = scania.GetCurrentPosition();
+        var actual = scania.getCurrentPosition();
 
         assertEquals(expected, actual); 
     }

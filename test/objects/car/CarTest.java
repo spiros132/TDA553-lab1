@@ -14,7 +14,7 @@ public class CarTest {
     @BeforeEach
     public void init() {
         car = new TestingCar();
-        car.StartEngine();
+        car.startEngine();
     }
     
     @Test
@@ -24,17 +24,10 @@ public class CarTest {
         if(expectedDirection < 0) {
             expectedDirection = 3;
         }
-<<<<<<< HEAD:test/objects/car/CarTest.java
-        
-        car.TurnLeft();
-        
-        assertEquals(expectedDirection, car.GetCurrentIntDirection());
-=======
 
         car.turnLeft();
         assertEquals(expectedDirection, car.getCurrentIntDirection());
 
->>>>>>> lab1:test/car/CarTest.java
     }
 
     @Test
@@ -52,17 +45,10 @@ public class CarTest {
     @Test
     public void TestMovement() {
         Vector2D expectedPosition = 
-<<<<<<< HEAD:test/objects/car/CarTest.java
-            Vector2D.Add(car.GetCurrentPosition(), 
-                Vector2D.Multiply(
-                    car.GetCurrentVectorDirection(), 
-                    car.GetCurrentSpeed()));
-=======
             Vector2D.add(car.getCurrentPosition(), 
                 Vector2D.multiply(
                     car.getCurrentVectorDirection(), 
                     car.speedFactor()));
->>>>>>> lab1:test/car/CarTest.java
 
         car.move();
         assertEquals(expectedPosition, car.getCurrentPosition());

@@ -19,16 +19,16 @@ public class CarTransporterTest {
 
    @Test
    public void TestDrivingWhileLoading() {
-        carTransporter.Lower();
-        carTransporter.StartEngine();
+        carTransporter.lower();
+        carTransporter.startEngine();
 
-        var expected = carTransporter.GetCurrentPosition();
+        var expected = carTransporter.getCurrentPosition();
         
         for (int i = 0; i < 10; i++) {
             carTransporter.gas(1);
         }
 
-        var actual = carTransporter.GetCurrentPosition();
+        var actual = carTransporter.getCurrentPosition();
 
         assertEquals(expected, actual);
    }
@@ -37,12 +37,12 @@ public class CarTransporterTest {
     public void TestLoadCarTooFarAway() {
         TestingCar testcar = new TestingCar();
         
-        var expected = carTransporter.GetCars();
+        var expected = carTransporter.getCars();
         // Move testcar very far away by adding the cartransporters current position to a vector2D of a very big size
-        testcar.MoveToPosition(Vector2D.Add(carTransporter.GetCurrentPosition(),new Vector2D(10000,10000) ));
+        testcar.moveToPosition(Vector2D.add(carTransporter.getCurrentPosition(),new Vector2D(10000,10000) ));
         
-        carTransporter.Load(testcar);
-        var actual = carTransporter.GetCars();
+        carTransporter.load(testcar);
+        var actual = carTransporter.getCars();
         
         assertArrayEquals(expected, actual);
 

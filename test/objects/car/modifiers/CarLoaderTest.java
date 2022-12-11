@@ -22,7 +22,7 @@ public class CarLoaderTest {
     @Test
     public void TestAddOverflow() {
         for (int i = 0; i < maxSize * 2; i++) {
-            carLoader.Load(new TestingCar(), Vector2D.Zero);
+            carLoader.load(new TestingCar(), Vector2D.Zero);
         }
         int expected = maxSize;
         int actual = carLoader.cars.size();
@@ -33,7 +33,7 @@ public class CarLoaderTest {
     @Test
     public void TestUnloadCarsNull() {
         Car expected = null;
-        Car actual = carLoader.Unload(maxSize * 10);
+        Car actual = carLoader.unload(maxSize * 10);
 
         assertEquals(expected, actual);
     }
@@ -44,11 +44,11 @@ public class CarLoaderTest {
         TestingCar testCar = new TestingCar();
         Vector2D moveToPosition = new Vector2D(random.nextInt(1,100),random.nextInt(1,100));
         
-        carLoader.Load(testCar, Vector2D.Zero);
-        carLoader.MoveCars(moveToPosition);
+        carLoader.load(testCar, Vector2D.Zero);
+        carLoader.moveCars(moveToPosition);
 
         Vector2D expected = moveToPosition;
-        Vector2D actual = testCar.GetCurrentPosition();
+        Vector2D actual = testCar.getCurrentPosition();
 
         assertEquals(expected, actual);
     }
