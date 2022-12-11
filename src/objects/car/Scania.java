@@ -26,14 +26,15 @@ import objects.car.modifiers.Ramp;
     }
 
     public void Raise(int angle) {
-        if(GetCurrentSpeed() <= 0){
+        if(GetCurrentSpeed() <= 0 && angle > 0) {
             ramp.Raise(angle);
         }
     }
-
+    
     public void Lower(int angle) {
-        if(GetCurrentSpeed() <= 0)
+        if(GetCurrentSpeed() <= 0 && angle > 0) {
             ramp.Lower(angle);
+        }
     }
 
     @Override

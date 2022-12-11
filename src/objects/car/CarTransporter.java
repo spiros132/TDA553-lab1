@@ -25,9 +25,19 @@ public class CarTransporter extends Car {
     public void Raise() {
         ramp.Raise(1);
     }
-
     public void Lower() {
         ramp.Lower(1);
+    }
+
+    void RaiseRamp(int angle) {
+        if(GetCurrentSpeed() <= 0 && angle > 0) {
+            ramp.Raise(angle);
+        }
+    }
+    void LowerRamp(int angle) {
+        if(GetCurrentSpeed() <= 0 && angle > 0) {
+            ramp.Lower(angle);
+        }
     }
 
 

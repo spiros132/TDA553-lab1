@@ -26,8 +26,8 @@ public class CarTest {
         }
         
         car.TurnLeft();
+        
         assertEquals(expectedDirection, car.GetCurrentIntDirection());
-
     }
 
     @Test

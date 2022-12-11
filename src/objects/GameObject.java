@@ -7,11 +7,16 @@ import utilities.Vector2D;
 public class GameObject {
     UUID uid;
 
-    protected Vector2D position = new Vector2D();
-    protected int direction = 1; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
+    protected Vector2D position = Vector2D.Zero;
+    protected int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
 
     public GameObject() {
         uid = UUID.randomUUID();
+    }
+
+    public void SetStartingValues(Vector2D StartingPosition, int StartingDirection) {
+        position = StartingPosition;
+        direction = StartingDirection;
     }
 
     public Vector2D GetCurrentVectorDirection() {
@@ -52,11 +57,13 @@ public class GameObject {
     }
 
     protected void RotateRight(int stepsAmount) {
-        direction = (direction + stepsAmount) % 4;
+        direction += stepsAmount;
+        direction %= 4;
     }
 
     protected void RotateLeft(int stepsAmount) {
-        direction = (direction - stepsAmount) % 4;
+        direction -= stepsAmount;
+        direction %= 4;
     }
 
     @Override
