@@ -6,7 +6,7 @@ public class TestingCar extends Car {
         nrDoors = 2;
         enginePower = 5;
         modelName = "Test 473658235343623458432654325";
-        StopEngine();
+        stopEngine();
     }
     
     @Override

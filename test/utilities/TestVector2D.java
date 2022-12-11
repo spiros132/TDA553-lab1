@@ -9,7 +9,7 @@ public class TestVector2D {
     @Test
     public void TestAdd() {
         var expectation = new Vector2D(vec1.x + vec2.x, vec1.y + vec2.y);
-        var actual = Vector2D.Add(vec1, vec2);
+        var actual = Vector2D.add(vec1, vec2);
 
         assertEquals(expectation, actual);
     }
@@ -18,7 +18,7 @@ public class TestVector2D {
     public void TestMultiply() {
         int constant = 7;
         var expectation = new Vector2D(vec1.x * constant, vec1.y * constant);
-        var actual = Vector2D.Multiply(vec1, constant);
+        var actual = Vector2D.multiply(vec1, constant);
 
         assertEquals(expectation, actual);
     }

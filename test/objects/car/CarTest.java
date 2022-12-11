@@ -19,66 +19,80 @@ public class CarTest {
     
     @Test
     public void TestLeftDirection(){
-        int expectedDirection = car.GetCurrentIntDirection() - 1;
+        int expectedDirection = car.getCurrentIntDirection() - 1;
         
         if(expectedDirection < 0) {
             expectedDirection = 3;
         }
+<<<<<<< HEAD:test/objects/car/CarTest.java
         
         car.TurnLeft();
         
         assertEquals(expectedDirection, car.GetCurrentIntDirection());
+=======
+
+        car.turnLeft();
+        assertEquals(expectedDirection, car.getCurrentIntDirection());
+
+>>>>>>> lab1:test/car/CarTest.java
     }
 
     @Test
     public void TestRightDirection() {
-        int expectedDirection = car.GetCurrentIntDirection() + 1;
+        int expectedDirection = car.getCurrentIntDirection() + 1;
      
         if(expectedDirection > 3) {
             expectedDirection = 0;
         }
 
-        car.TurnRight();
-        assertEquals(expectedDirection, car.GetCurrentIntDirection());
+        car.turnRight();
+        assertEquals(expectedDirection, car.getCurrentIntDirection());
     }
 
     @Test
     public void TestMovement() {
         Vector2D expectedPosition = 
+<<<<<<< HEAD:test/objects/car/CarTest.java
             Vector2D.Add(car.GetCurrentPosition(), 
                 Vector2D.Multiply(
                     car.GetCurrentVectorDirection(), 
                     car.GetCurrentSpeed()));
+=======
+            Vector2D.add(car.getCurrentPosition(), 
+                Vector2D.multiply(
+                    car.getCurrentVectorDirection(), 
+                    car.speedFactor()));
+>>>>>>> lab1:test/car/CarTest.java
 
-        car.Move();
-        assertEquals(expectedPosition, car.GetCurrentPosition());
+        car.move();
+        assertEquals(expectedPosition, car.getCurrentPosition());
     }
 
     // Testing that clamp and gas work
     @Test
     public void TestClampIncrementSpeed() {
         // Start the engine
-        car.StartEngine();
+        car.startEngine();
 
         for (int i = 0; i < 10000; i++) {
             car.gas(1000000000);
         }
 
         // Check if the max the car can go is equal to the engine power
-        assertTrue(car.GetEnginePower() == car.GetCurrentSpeed());
+        assertTrue(car.getEnginePower() == car.getCurrentSpeed());
     }
 
     @Test
     public void TestClampDecreaseSpeed() {
         // Start the engine
-        car.StartEngine();
+        car.startEngine();
 
         for (int i = 0; i < 10000; i++) {
             car.brake(1000000000);
         }
 
         // Check if the min the car can go is equal to 0
-        assertTrue(0 == car.GetCurrentSpeed());
+        assertTrue(0 == car.getCurrentSpeed());
     }
 }
 
