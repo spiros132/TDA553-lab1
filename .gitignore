@@ -1,1 +1,6 @@
-/bin
+# Ignore user specific vscode files
+./.vscode
+
+# Remove all class files, aka binary files
+./bin
+./**/*.class
