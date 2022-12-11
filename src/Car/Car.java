@@ -7,26 +7,26 @@ import utilities.Vector2D;
 public abstract class Car implements Movable{
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
+    private double currentSpeed; // The current speed of the car
     
-    protected Vector2D position = new Vector2D();
-    protected int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
+    private Vector2D position = new Vector2D();
+    private int direction = 0; // 0 = Up, 1 = Right, 2 = Down, 3 = Left
     
 
-    public int GetNrDoors(){
+    public int getNrDoors(){
         return nrDoors;
     }
-    public double GetEnginePower(){
+    public double getEnginePower(){
         return enginePower;
     }
 
-    public double GetCurrentSpeed(){
+    public double getCurrentSpeed(){
         return currentSpeed;
     }
 
-    public Color GetColor(){
+    public Color getColor(){
         return color;
     }
 
@@ -34,11 +34,11 @@ public abstract class Car implements Movable{
 	    color = clr;
     }
 
-    public void StartEngine(){
+    public void startEngine(){
 	    currentSpeed = 0.1;
     }
 
-    public void StopEngine(){
+    public void stopEngine(){
 	    currentSpeed = 0;
     }
 
@@ -47,15 +47,15 @@ public abstract class Car implements Movable{
 
 
     private void incrementSpeed(double amount){
-	    currentSpeed = Math.min(GetCurrentSpeed() + speedFactor() * amount,enginePower);
+	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     private void decrementSpeed(double amount){
-        currentSpeed = Math.max(GetCurrentSpeed() - speedFactor() * amount,0);
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
   
-    public Vector2D GetCurrentVectorDirection() {
+    public Vector2D getCurrentVectorDirection() {
         if(direction == 0) { // 0 is up
             return new Vector2D(0, 1);
         }
@@ -73,22 +73,22 @@ public abstract class Car implements Movable{
         }
     }
 
-    public int GetCurrentIntDirection() {
+    public int getCurrentIntDirection() {
         if(direction > 3 && direction < 0) {
             throw new Error("Direction: " + direction + "shouldn't exist");
         }
         return direction;
     }
 
-    public Vector2D GetCurrentPosition() {
+    public Vector2D getCurrentPosition() {
         return position;
     }
 
-    public void Move() {
-        position = Vector2D.Add(position, Vector2D.Multiply(GetCurrentVectorDirection(), speedFactor()));
+    public void move() {
+        position = Vector2D.add(position, Vector2D.multiply(getCurrentVectorDirection(), speedFactor()));
     }
 
-    public void TurnLeft() {
+    public void turnLeft() {
         System.out.println("Turn Left, current direction: " + direction);
         direction -= 1;
     
@@ -99,7 +99,7 @@ public abstract class Car implements Movable{
         System.out.println("After current direction: " + direction);
     }
 
-    public void TurnRight() {
+    public void turnRight() {
         System.out.println("Turn Right, current direction: " + direction);
 
         direction += 1;
@@ -111,18 +111,18 @@ public abstract class Car implements Movable{
     }
 
     public void gas(double amount){
-        amount = Clamping.Clamp(amount, 0, 1);
+        amount = Clamping.clamp(amount, 0, 1);
 
         incrementSpeed(amount);
         
-        currentSpeed = Clamping.Clamp(currentSpeed, 0, enginePower);
+        currentSpeed = Clamping.clamp(currentSpeed, 0, enginePower);
     }
 
     public void brake(double amount){
-        amount = Clamping.Clamp(amount, 0, 1);
+        amount = Clamping.clamp(amount, 0, 1);
 
         decrementSpeed(amount);
 
-        currentSpeed = Clamping.Clamp(currentSpeed, 0, enginePower);
+        currentSpeed = Clamping.clamp(currentSpeed, 0, enginePower);
     }
 }

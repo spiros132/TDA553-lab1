@@ -17,11 +17,11 @@ public class Vector2D {
     }
 
 
-    public static Vector2D Add(Vector2D a, Vector2D b) {
+    public static Vector2D add(Vector2D a, Vector2D b) {
         return new Vector2D(a.x + b.x, a.y + b.y);
     }
 
-    public static Vector2D Multiply(Vector2D a, double multiplier) {
+    public static Vector2D multiply(Vector2D a, double multiplier) {
         return new Vector2D(a.x * multiplier, a.y * multiplier);
     }
 

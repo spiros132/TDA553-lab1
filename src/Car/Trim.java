@@ -7,7 +7,7 @@ public class Trim {
         this.trimFactor = trimFactor;
     }
 
-    public double GetTrimFactor() {
+    public double getTrimFactor() {
         return trimFactor;
     }
 }

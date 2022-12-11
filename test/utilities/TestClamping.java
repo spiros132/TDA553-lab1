@@ -8,7 +8,7 @@ public class TestClamping {
     public void TestUpperLimitInt() {
         int expectation = 100;
 
-        int actual = Clamping.Clamp(expectation * 2, -expectation, expectation);
+        int actual = Clamping.clamp(expectation * 2, -expectation, expectation);
 
         assertTrue(expectation == actual);
     }
@@ -17,7 +17,7 @@ public class TestClamping {
     public void TestUpperLimitFloat() {
         float expectation = 100.1564f;
 
-        float actual = Clamping.Clamp(expectation * 2, -expectation, expectation);
+        float actual = Clamping.clamp(expectation * 2, -expectation, expectation);
 
         assertTrue(expectation == actual);
     }
@@ -26,7 +26,7 @@ public class TestClamping {
     public void TestUpperLimitDouble() {
         double expectation = 100.0475d;
 
-        double actual = Clamping.Clamp(expectation * 2, -expectation, expectation);
+        double actual = Clamping.clamp(expectation * 2, -expectation, expectation);
 
         assertTrue(expectation == actual);
     }
@@ -36,7 +36,7 @@ public class TestClamping {
     public void TestLowerLimitInt() {
         int expectation = 100;
 
-        int actual = Clamping.Clamp(-expectation * 2, -expectation, expectation);
+        int actual = Clamping.clamp(-expectation * 2, -expectation, expectation);
 
         assertTrue(-expectation == actual);
     }
@@ -45,7 +45,7 @@ public class TestClamping {
     public void TestLowerLimitFloat() {
         float expectation = 100.1564f;
 
-        float actual = Clamping.Clamp(-expectation * 2, -expectation, expectation);
+        float actual = Clamping.clamp(-expectation * 2, -expectation, expectation);
 
         assertTrue(-expectation == actual);
     }
@@ -54,7 +54,7 @@ public class TestClamping {
     public void TestLowerLimitDouble() {
         double expectation = 100.0475d;
 
-        double actual = Clamping.Clamp(-expectation * 2, -expectation, expectation);
+        double actual = Clamping.clamp(-expectation * 2, -expectation, expectation);
 
         assertTrue(-expectation == actual);
     }

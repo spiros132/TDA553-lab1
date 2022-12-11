@@ -11,11 +11,11 @@ public class Volvo240 extends Car{
         enginePower = 100;
         modelName = "Volvo240";
         trim = new Trim(1.25d);
-        StopEngine();
+        stopEngine();
     }
 
     @Override
     protected double speedFactor(){
-        return enginePower * 0.01 * trim.GetTrimFactor();
+        return enginePower * 0.01 * trim.getTrimFactor();
     }
 }

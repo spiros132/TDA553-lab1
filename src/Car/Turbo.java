@@ -9,15 +9,15 @@ public class Turbo {
         this.turboAmount = turboAmount;
     }
 
-    public void TurnOn() {
+    public void turnOn() {
         turboOn = true;
     }
 
-    public void TurnOff() {
+    public void turnOff() {
         turboOn = false;
     }
 
-    public double GetTurboAmount() {
+    public double getTurboAmount() {
         return turboOn ? turboAmount : 0;
     }
 }

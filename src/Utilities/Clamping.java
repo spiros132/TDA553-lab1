@@ -2,7 +2,7 @@ package utilities;
 
 public final class Clamping {
     // Clamp //
-    public static double Clamp(double value, double min, double max) {
+    public static double clamp(double value, double min, double max) {
         if(value > max) {
             value = max;
         }
@@ -14,7 +14,7 @@ public final class Clamping {
         return value;
     }
 
-    public static int Clamp(int value, int min, int max) {
+    public static int clamp(int value, int min, int max) {
         if(value > max) {
             value = max;
         }
@@ -26,7 +26,7 @@ public final class Clamping {
         return value;
     }
 
-    public static float Clamp(float value, float min, float max) {
+    public static float clamp(float value, float min, float max) {
         if(value > max) {
             value = max;
         }

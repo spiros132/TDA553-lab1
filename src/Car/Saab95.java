@@ -11,20 +11,20 @@ public class Saab95 extends Car {
         enginePower = 125;
         turbo = new Turbo(0.33d);
         modelName = "Saab95";
-        StopEngine();
+        stopEngine();
     }
 
     public void setTurboOn(){
-	    turbo.TurnOn();
+	    turbo.turnOn();
     }
 
     public void setTurboOff(){
-	    turbo.TurnOff();
+	    turbo.turnOff();
     }
     
     @Override
     protected double speedFactor(){
-        double turboAmount = 1 + turbo.GetTurboAmount();
+        double turboAmount = 1 + turbo.getTurboAmount();
         return enginePower * 0.01 * turboAmount;
     }
  
