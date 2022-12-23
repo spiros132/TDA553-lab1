@@ -47,7 +47,7 @@ public class CarTest {
             Vector2D.Add(car.GetCurrentPosition(), 
                 Vector2D.Multiply(
                     car.GetCurrentVectorDirection(), 
-                    car.speedFactor()));
+                    car.GetCurrentSpeed()));
 
         car.Move();
         assertEquals(expectedPosition, car.GetCurrentPosition());

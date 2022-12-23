@@ -85,7 +85,7 @@ public abstract class Car implements Movable{
     }
 
     public void Move() {
-        position = Vector2D.Add(position, Vector2D.Multiply(GetCurrentVectorDirection(), speedFactor()));
+        position = Vector2D.Add(position, Vector2D.Multiply(GetCurrentVectorDirection(), GetCurrentSpeed()));
     }
 
     public void TurnLeft() {

@@ -7,6 +7,8 @@ The "main" super class is Car where every car inherits from.
 It has functions that all cars should have, like getters and setters for different attributes.
 It also has functions about how the car should move and how it should turn. 
 It also has an abstract function that every car inherits which returns a value for the speed of the car.
+This helps with the open closed principle as it allows the creation of new types of cars by just extending the car super class.
+Meaning no alot of code resuse and no modifying of previous code is required.
 
 
 2. Because the math is too complicated we chose to just increase the speed by a lot.
