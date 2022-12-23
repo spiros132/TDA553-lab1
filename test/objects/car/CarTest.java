@@ -48,7 +48,7 @@ public class CarTest {
             Vector2D.add(car.getCurrentPosition(), 
                 Vector2D.multiply(
                     car.getCurrentVectorDirection(), 
-                    car.speedFactor()));
+                    car.getCurrentSpeed()));
 
         car.move();
         assertEquals(expectedPosition, car.getCurrentPosition());

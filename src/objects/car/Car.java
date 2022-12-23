@@ -68,7 +68,7 @@ public abstract class Car extends GameObject implements Movable {
         else if(direction == 2) { // 2 is down
             return new Vector2D(0, -1);
         }
-        else if (direction == 4) { // 3 is left
+        else if (direction == 3) { // 3 is left
             return new Vector2D(-1, 0);
         }
         else {
@@ -88,24 +88,15 @@ public abstract class Car extends GameObject implements Movable {
     }
 
     public void turnLeft() {
-        System.out.println("Turn Left, current direction: " + direction);
-        direction -= 1;
-    
-        if (direction < 0) {
-            direction = 3;
-        }
-
         rotateLeft(1);  
     }
 
     public void turnRight() {
-        System.out.println("Turn Right, current direction: " + direction);
-
         rotateRight(1);
     }
 
     public void move() {
-        if (canDrive() == true)
+        if (canDrive())
             moveWithDirection(Vector2D.multiply(getCurrentVectorDirection(), getCurrentSpeed()));
     }
 

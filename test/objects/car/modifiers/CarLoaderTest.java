@@ -42,7 +42,10 @@ public class CarLoaderTest {
     public void TestMoveCars() {
         Random random = new Random();
         TestingCar testCar = new TestingCar();
-        Vector2D moveToPosition = new Vector2D(random.nextInt(1,100),random.nextInt(1,100));
+        Vector2D moveToPosition = new Vector2D(
+            random.nextInt(1,100), 
+            random.nextInt(1,100)
+        );
         
         carLoader.load(testCar, Vector2D.Zero);
         carLoader.moveCars(moveToPosition);
