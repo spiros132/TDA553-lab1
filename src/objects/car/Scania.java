@@ -1,9 +1,11 @@
 package objects.car;
-import java.awt.*;
 
+import java.awt.*;
+import game.GameImages;
+import objects.car.modifiers.IHasRamp;
 import objects.car.modifiers.Ramp;
 
- public class Scania extends Car {
+ public class Scania extends Car implements IHasRamp {
     public final int rampMaxAngle = 70;
     public final int rampMinAngle = 0;
 
@@ -16,6 +18,7 @@ import objects.car.modifiers.Ramp;
         enginePower = 90;
         ramp = new Ramp(rampMinAngle,rampMinAngle,rampMaxAngle);
         modelName ="Scania";
+        setGameObjectImage(GameImages.GetScaniaImage());
         stopEngine();
     }
 

@@ -3,10 +3,11 @@ package objects.car;
 import java.awt.*;
 
 import objects.car.modifiers.CarLoader;
+import objects.car.modifiers.IHasRamp;
 import objects.car.modifiers.Ramp;
 import utilities.Vector2D;
 
-public class CarTransporter extends Car {
+public class CarTransporter extends Car implements IHasRamp {
     private Ramp ramp;
     private CarLoader carLoader;
     private Vector2D unloadOffset;
@@ -22,19 +23,13 @@ public class CarTransporter extends Car {
         stopEngine();
     }
 
-    public void raise() {
-        ramp.raise(1);
-    }
-    public void lower() {
-        ramp.lower(1);
-    }
-
-    void raiseRamp(int angle) {
+    public void raise(int angle) {
         if(getCurrentSpeed() <= 0 && angle > 0) {
             ramp.raise(angle);
         }
     }
-    void lowerRamp(int angle) {
+
+    public void lower(int angle) {
         if(getCurrentSpeed() <= 0 && angle > 0) {
             ramp.lower(angle);
         }

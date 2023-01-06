@@ -19,7 +19,7 @@ public class CarTransporterTest {
 
    @Test
    public void TestDrivingWhileLoading() {
-        carTransporter.lower();
+        carTransporter.lower(1);
         carTransporter.startEngine();
 
         var expected = carTransporter.getCurrentPosition();

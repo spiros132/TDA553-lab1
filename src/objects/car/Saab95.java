@@ -1,9 +1,11 @@
 package objects.car;
 import java.awt.*;
 
+import game.GameImages;
+import objects.car.modifiers.IHasTurbo;
 import objects.car.modifiers.Turbo;
 
-public class Saab95 extends Car {
+public class Saab95 extends Car implements IHasTurbo {
 
     private Turbo turbo;
     
@@ -13,6 +15,9 @@ public class Saab95 extends Car {
         enginePower = 125;
         turbo = new Turbo(0.33d);
         modelName = "Saab95";
+
+        setGameObjectImage(GameImages.GetSaab95Image());
+
         stopEngine();
     }
 

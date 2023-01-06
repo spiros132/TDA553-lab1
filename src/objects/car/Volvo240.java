@@ -1,6 +1,7 @@
 package objects.car;
 import java.awt.*;
 
+import game.GameImages;
 import objects.car.modifiers.Trim;
 
 public class Volvo240 extends Car{
@@ -13,6 +14,7 @@ public class Volvo240 extends Car{
         enginePower = 100;
         trim = new Trim(1.25d);
         modelName = "Volvo240";
+        setGameObjectImage(GameImages.GetVolvo240Image());
         stopEngine();
     }
 
